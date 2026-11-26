@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Anish Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fustat: ['Fustat', 'sans-serif'],
+            figtree: ['Figtree', 'sans-serif'],
+          },
+          colors: {
+            limebrand: '#C5F028',
+            ink: '#0A0B0A',
+            darkbg: '#090B08',
+            muted: '#5A5555',
+            mutedlight: '#898483',
+            surface: '#F5F5F5',
+          },
+          borderRadius: {
+            '4xl': '36px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-ink antialiased selection:bg-limebrand selection:text-ink relative">
+
+  <!-- Soft Top-Right Lime Ambient Glow -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+    <div class="absolute right-[-140px] -top-32 w-[780px] lg:w-[1050px] h-[780px] lg:h-[950px] rounded-full bg-[#ECFAB7]/35 blur-3xl"></div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="w-full max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-24 flex items-center justify-between relative z-30">
+    <a href="index.html" class="flex items-center shrink-0" aria-label="Home">
+      <img src="assets/logo.svg" alt="Andro Logo" class="w-12 h-12" />
+    </a>
+
+    <nav class="hidden md:flex items-center">
+      <a href="index.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Home</a>
+      <a href="about.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">About</a>
+      <a href="portfolio.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Portfolio</a>
+      <a href="gallery.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Gallery</a>
+      <a href="blog.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Blog</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button onclick="openContactModal()" class="h-10 px-5 rounded-full border border-neutral-200 bg-white/70 backdrop-blur-sm text-ink text-sm font-medium flex items-center gap-2 transition hover:bg-surface">
+        <img src="assets/fc3bfa539ef218e6.svg" alt="Chat icon" class="w-4 h-4" />
+        <span>Let’s talk</span>
+      </button>
+      <button id="userAuthBtn" onclick="openUserAuthModal()" class="h-10 px-5 rounded-full bg-ink text-white text-sm font-medium flex items-center gap-2 transition hover:bg-neutral-800">
+        <span>Login</span>
+      </button>
+      <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full bg-surface flex items-center justify-center" aria-label="Toggle Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden absolute top-24 left-5 right-5 bg-white border border-neutral-200 rounded-3xl p-4 shadow-xl flex-col gap-2 z-50">
+      <a href="index.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Home</a>
+      <a href="about.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">About</a>
+      <a href="portfolio.html" class="px-4 py-2.5 rounded-full bg-limebrand text-ink text-sm font-medium">Portfolio</a>
+      <a href="blog.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Blog</a>
+    </div>
+  </header>
+
+  <!-- ==================== PORTFOLIO HERO ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pt-10 pb-14">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-10 lg:gap-14">
+      <img
+        src="assets/41984b64d72e1643.jpg"
+        alt="Portfolio Showcase"
+        class="w-60 h-60 sm:w-[345px] sm:h-[345px] rounded-full object-cover shrink-0"
+      />
+      <div class="max-w-2xl">
+        <h1 class="text-3xl sm:text-[48px] font-bold leading-[1.18] tracking-tight text-ink mb-5">
+          Projects I Have Personally<br class="hidden sm:inline" /> Created and Developed
+        </h1>
+        <p class="text-xl sm:text-2xl text-[#726C6C] leading-snug">
+          Latest News and Articles goes here, The most powerful software &amp; app landing page for any kind of app and software marketing business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BRAND LOGO MARQUEE ==================== -->
+  <section class="w-full overflow-hidden py-8 mb-8">
+    <div class="marquee-track items-center gap-24">
+      <div class="flex items-center gap-24 shrink-0">
+        <img src="assets/d9fcbaba024ad614.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/af2cbce8030754a4.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/5fdae1971a5bf1b2.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/59a557f0b680ed84.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f30997d2dfbdca61.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/69aa5ea4d650baac.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f7d160f1b828212f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/bca8fc3a4c418b6f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/2aecf89957a22c72.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/9b1362ac6738d2bf.svg" alt="Brand" class="h-[30px] w-auto" />
+      </div>
+      <div class="flex items-center gap-24 shrink-0 ml-24" aria-hidden="true">
+        <img src="assets/d9fcbaba024ad614.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/af2cbce8030754a4.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/5fdae1971a5bf1b2.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/59a557f0b680ed84.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f30997d2dfbdca61.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/69aa5ea4d650baac.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f7d160f1b828212f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/bca8fc3a4c418b6f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/2aecf89957a22c72.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/9b1362ac6738d2bf.svg" alt="Brand" class="h-[30px] w-auto" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CASE STUDIES LIST ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-20">
+    <div class="flex flex-col gap-6" id="portfolioList">
+      <!-- Case 1 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/81fdc9d3431a5af6.png" alt="Voltgear EV Tracking" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-full bg-white/25 backdrop-blur-md text-white text-base sm:text-lg font-semibold mb-4">UiUx</span>
+          <h2 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Voltgear EV Tracking</h2>
+        </div>
+      </article>
+
+      <!-- Case 2 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/72e46ce3be6c9579.png" alt="Camping Website Design" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-full bg-white/25 backdrop-blur-md text-white text-base sm:text-lg font-semibold mb-4">Website</span>
+          <h2 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Camping Website Design</h2>
+        </div>
+      </article>
+
+      <!-- Case 3 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/503c70a35aac3f59.png" alt="Minimal - Brand Animation" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-full bg-white/25 backdrop-blur-md text-white text-base sm:text-lg font-semibold mb-4">Branding</span>
+          <h2 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Minimal - Brand Animation</h2>
+        </div>
+      </article>
+
+      <!-- Case 4 (Hidden until Load More) -->
+      <article class="load-more-item hidden relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/b92590d30d782cba.png" alt="Wood E-Commerce Mobile" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-11 sm:h-12 px-6 rounded-full bg-white/25 backdrop-blur-md text-white text-base sm:text-lg font-semibold mb-4">UiUx</span>
+          <h2 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Wood E-Commerce Mobile</h2>
+        </div>
+      </article>
+    </div>
+
+    <div class="flex justify-center mt-10">
+      <button id="loadMoreBtn" data-target="#portfolioList" class="h-11 px-8 rounded-full bg-limebrand text-ink text-sm font-semibold transition hover:brightness-95">
+        Load More
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE + TESTIMONIALS ==================== -->
+  <section class="w-full overflow-hidden pb-24 lg:pb-32">
+    <div class="w-full overflow-hidden py-6 mb-14">
+      <div class="marquee-track items-center gap-14">
+        <div class="flex items-center gap-14 shrink-0">
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+        </div>
+        <div class="flex items-center gap-14 shrink-0 ml-14" aria-hidden="true">
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20">
+      <div id="testimonialTrack" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/edab65b2419ba51d.jpg" alt="James Anderson" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              Thanks to the team’s creativity and precision, our project was truly smooth, seamless, efficient, and visually stunning.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">James Anderson</div>
+              <div class="text-sm text-ink/80">UX Designer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/fc11c8e093ffc5d3.jpg" alt="Michael Thompson" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              Working with them felt smooth and seamless, with every step being professional, insightful, and results-driven.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">Michael Thompson</div>
+              <div class="text-sm text-ink/80">Frontend Developer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/abb9d4a78a03de6a.jpg" alt="David Miller" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              Their innovative approach transformed our ideas into a cohesive, user-friendly solution that exceeded all our expectations.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">David Miller</div>
+              <div class="text-sm text-ink/80">Product Manager</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/348c4103daa864dc.jpg" alt="Christopher Reed" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              The process was efficient and inspiring, combining expertise, creativity, and dedication to produce outstanding work.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">Christopher Reed</div>
+              <div class="text-sm text-ink/80">Creative Director</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 mt-10">
+        <button id="prevTestimonial" class="w-14 h-14 rounded-full flex items-center justify-center transition hover:scale-105 active:scale-95" aria-label="Previous testimonial">
+          <img src="assets/32c7e0709fad5518.svg" alt="Previous" class="w-14 h-14" />
+        </button>
+        <button id="nextTestimonial" class="w-14 h-14 rounded-full flex items-center justify-center transition hover:scale-105 active:scale-95" aria-label="Next testimonial">
+          <img src="assets/130cfa3da11c615e.svg" alt="Next" class="w-14 h-14" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <h2 class="text-3xl sm:text-5xl font-bold text-ink text-center mb-14">
+      Frequently asked Questions
+    </h2>
+
+    <div class="max-w-[732px] mx-auto flex flex-col gap-6" id="faqAccordion">
+      <div class="accordion-item is-open rounded-3xl bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">What services do you offer?</h3>
+          <img src="assets/d8a51fc2e0d86163.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              There are many types of services we offer, ranging from design and development to marketing and consulting, but each project is tailored individually, ensuring a unique solution that fits your needs perfectly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">How long does a project take?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              Project durations vary depending on complexity and requirements, but we always aim to deliver on time while maintaining quality, and we keep clients updated throughout the process to avoid surprises.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">What is your pricing model?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              Pricing can differ based on the project scope, complexity, and specific requirements, but we provide transparent quotes upfront so there are no hidden costs or unexpected charges along the way.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">Do you offer post-project support?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              After a project is completed, we provide ongoing support and maintenance to ensure everything functions smoothly, address any issues quickly, and help clients get the most out of the final product.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER CTA & BOTTOM BAR ==================== -->
+  <footer class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-10">
+    <div class="bg-ink rounded-4xl px-6 py-20 sm:py-28 flex flex-col items-center text-center">
+      <p class="text-limebrand text-lg font-normal mb-4">
+        Let’s turn your ideas into a stunning reality.
+      </p>
+      <a href="mailto:mdanishur72@gmail.com" class="text-white text-2xl sm:text-5xl lg:text-[64px] font-bold tracking-tight hover:text-limebrand transition break-all">
+        mdanishur72@gmail.com
+      </a>
+
+      <nav class="flex flex-wrap items-center justify-center gap-1 mt-12">
+        <a href="index.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Home</a>
+        <a href="about.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">About</a>
+        <a href="portfolio.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Portfolio</a>
+        <a href="blog.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Blog</a>
+      </nav>
+    </div>
+
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="text-sm text-ink">Theme created by Pentaclay</p>
+
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-flex items-center gap-2 text-sm text-ink hover:opacity-70 transition">
+        <span>Back to Top</span>
+        <img src="assets/b90b6af0dc5f4d6b.svg" alt="Back to top" class="w-[18px] h-[18px]" />
+      </button>
+
+      <div class="flex items-center gap-2">
+        <a href="#" aria-label="Social 1" class="social-pill"><div class="social-pill-inner"><img src="assets/294c1b6b1e0949b1.svg" alt="Social 1" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 2" class="social-pill"><div class="social-pill-inner"><img src="assets/0dc8e818fc9cae7b.svg" alt="Social 2" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 3" class="social-pill"><div class="social-pill-inner"><img src="assets/4c52bc0207d54f90.svg" alt="Social 3" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 4" class="social-pill"><div class="social-pill-inner"><img src="assets/e4289dbe3099af5d.svg" alt="Social 4" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 5" class="social-pill"><div class="social-pill-inner"><img src="assets/e1ade63b745ea15f.svg" alt="Social 5" class="w-5 h-5" /></div></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CONTACT MODAL ==================== -->
+  <div id="contactModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-white rounded-4xl max-w-lg w-full p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink hover:bg-neutral-200 transition" aria-label="Close modal">
+        ✕
+      </button>
+      <p class="text-sm font-semibold text-muted mb-1">Let’s work together</p>
+      <h3 class="text-3xl font-bold text-ink mb-6">Send me a message</h3>
+      <form id="contactForm" class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Name</label>
+          <input type="text" name="name" required placeholder="Your name" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Email</label>
+          <input type="email" name="email" required placeholder="you@example.com" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Message</label>
+          <textarea name="message" rows="4" required placeholder="Tell me about your project..." class="w-full p-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition resize-none"></textarea>
+        </div>
+        <button type="submit" class="h-12 rounded-full bg-limebrand text-ink font-semibold text-base hover:brightness-95 transition mt-2">
+          Send Message
+        </button>
+        <p id="contactStatus" class="text-sm text-center hidden mt-1"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

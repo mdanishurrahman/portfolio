@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Anish Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fustat: ['Fustat', 'sans-serif'],
+            figtree: ['Figtree', 'sans-serif'],
+          },
+          colors: {
+            limebrand: '#C5F028',
+            ink: '#0A0B0A',
+            darkbg: '#090B08',
+            muted: '#5A5555',
+            mutedlight: '#898483',
+            surface: '#F5F5F5',
+          },
+          borderRadius: {
+            '4xl': '36px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-ink antialiased selection:bg-limebrand selection:text-ink">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="w-full max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-24 flex items-center justify-between relative z-30">
+    <a href="index.html" class="flex items-center shrink-0" aria-label="Home">
+      <img src="assets/logo.svg" alt="Andro Logo" class="w-12 h-12" />
+    </a>
+
+    <nav class="hidden md:flex items-center">
+      <a href="index.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Home</a>
+      <a href="about.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">About</a>
+      <a href="portfolio.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Portfolio</a>
+      <a href="gallery.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Gallery</a>
+      <a href="blog.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Blog</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button onclick="openContactModal()" class="h-10 px-5 rounded-full border border-neutral-200 bg-transparent text-ink text-sm font-medium flex items-center gap-2 transition hover:bg-surface">
+        <img src="assets/fc3bfa539ef218e6.svg" alt="Chat icon" class="w-4 h-4" />
+        <span>Let’s talk</span>
+      </button>
+      <button id="userAuthBtn" onclick="openUserAuthModal()" class="h-10 px-5 rounded-full bg-ink text-white text-sm font-medium flex items-center gap-2 transition hover:bg-neutral-800">
+        <span>Login</span>
+      </button>
+      <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full bg-surface flex items-center justify-center" aria-label="Toggle Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden absolute top-24 left-5 right-5 bg-white border border-neutral-200 rounded-3xl p-4 shadow-xl flex-col gap-2 z-50">
+      <a href="index.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Home</a>
+      <a href="about.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">About</a>
+      <a href="portfolio.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Portfolio</a>
+      <a href="blog.html" class="px-4 py-2.5 rounded-full bg-limebrand text-ink text-sm font-medium">Blog</a>
+    </div>
+  </header>
+
+  <!-- ==================== BLOG TITLE ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pt-8 pb-10">
+    <h1 class="text-5xl sm:text-7xl lg:text-[96px] font-bold text-ink text-center leading-[1.08] tracking-tight">
+      News And Insight
+    </h1>
+  </section>
+
+  <!-- ==================== FEATURED POST ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-12">
+    <article class="relative w-full min-h-[520px] sm:h-[640px] rounded-4xl overflow-hidden p-5 sm:p-8 flex items-stretch group cursor-pointer">
+      <img
+        src="assets/e4624c39bf40e035.jpg"
+        alt="14 common design misconceptions"
+        class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105"
+      />
+      <div class="relative z-10 bg-white rounded-3xl p-8 sm:p-10 w-full max-w-[400px] flex flex-col justify-between shadow-lg">
+        <div>
+          <p class="text-sm text-muted mb-4">Aug 14, 2024</p>
+          <h2 class="text-2xl sm:text-[32px] font-bold text-ink leading-tight mb-4">
+            14 common design misconceptions
+          </h2>
+          <p class="text-base text-muted leading-relaxed">
+            Security weaknesses are critical in a network security system. Fuzzing is a common and dangerous vulnerability...
+          </p>
+        </div>
+        <a href="blog-post.html?slug=14-common-design-misconceptions" class="inline-flex items-center gap-2 text-base font-medium text-ink underline underline-offset-4 mt-8 hover:opacity-75">
+          <span>Read more</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ==================== BLOG GRID ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="blogGrid">
+      <!-- Post 1 -->
+      <a href="blog-post.html?slug=how-to-move-from-freelance-design-agency" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/61c327cf20f82355.png" alt="How to move from freelance design agency" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            How to move from freelance design agency
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="blog-post.html?slug=10-things-nobody-told-you-a-web-designer" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/7193ef1466721270.png" alt="10 things nobody told you a web designer" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            10 things nobody told you a web designer
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="blog-post.html?slug=5-web-design-blogs-you-should-be-reading" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/3fc374ad35d47a34.png" alt="5 web design blogs you should be reading" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            5 web design blogs you should be reading
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 4 -->
+      <a href="blog-post.html?slug=balancing-design-creativity-with-efficiency" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/859a033036432a65.png" alt="Balancing design creativity with efficiency" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Balancing design creativity with efficiency
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 5 -->
+      <a href="blog-post.html?slug=find-all-everything-from-design-to-freelancing" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/16ddb3e6aa162d0e.png" alt="Find all everything from design to freelancing" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Find all everything from design to freelancing
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 6 -->
+      <a href="blog-post.html?slug=webflow-freelancer-to-agency-owner-path" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/59f3ad7c7b9169b7.png" alt="Webflow freelancer to agency owner path" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Webflow freelancer to agency owner path
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 7 (Hidden until Load More) -->
+      <a href="blog-post.html?slug=design-trends-you-should-follow-for-next-project" class="load-more-item hidden relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/df019dac73248bee.jpg" alt="Design trends you should follow for next project" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Design trends you should follow for next project
+          </h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="flex justify-center mt-12">
+      <button id="loadMoreBtn" data-target="#blogGrid" class="h-11 px-8 rounded-full bg-limebrand text-ink text-sm font-semibold transition hover:brightness-95">
+        Load More
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER CTA & BOTTOM BAR ==================== -->
+  <footer class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-10">
+    <div class="bg-ink rounded-4xl px-6 py-20 sm:py-28 flex flex-col items-center text-center">
+      <p class="text-limebrand text-lg font-normal mb-4">
+        Let’s turn your ideas into a stunning reality.
+      </p>
+      <a href="mailto:mdanishur72@gmail.com" class="text-white text-2xl sm:text-5xl lg:text-[64px] font-bold tracking-tight hover:text-limebrand transition break-all">
+        mdanishur72@gmail.com
+      </a>
+
+      <nav class="flex flex-wrap items-center justify-center gap-1 mt-12">
+        <a href="index.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Home</a>
+        <a href="about.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">About</a>
+        <a href="portfolio.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Portfolio</a>
+        <a href="blog.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Blog</a>
+      </nav>
+    </div>
+
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="text-sm text-ink">Theme created by Pentaclay</p>
+
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-flex items-center gap-2 text-sm text-ink hover:opacity-70 transition">
+        <span>Back to Top</span>
+        <img src="assets/b90b6af0dc5f4d6b.svg" alt="Back to top" class="w-[18px] h-[18px]" />
+      </button>
+
+      <div class="flex items-center gap-2">
+        <a href="#" aria-label="Social 1" class="social-pill"><div class="social-pill-inner"><img src="assets/294c1b6b1e0949b1.svg" alt="Social 1" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 2" class="social-pill"><div class="social-pill-inner"><img src="assets/0dc8e818fc9cae7b.svg" alt="Social 2" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 3" class="social-pill"><div class="social-pill-inner"><img src="assets/4c52bc0207d54f90.svg" alt="Social 3" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 4" class="social-pill"><div class="social-pill-inner"><img src="assets/e4289dbe3099af5d.svg" alt="Social 4" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 5" class="social-pill"><div class="social-pill-inner"><img src="assets/e1ade63b745ea15f.svg" alt="Social 5" class="w-5 h-5" /></div></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CONTACT MODAL ==================== -->
+  <div id="contactModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-white rounded-4xl max-w-lg w-full p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink hover:bg-neutral-200 transition" aria-label="Close modal">
+        ✕
+      </button>
+      <p class="text-sm font-semibold text-muted mb-1">Let’s work together</p>
+      <h3 class="text-3xl font-bold text-ink mb-6">Send me a message</h3>
+      <form id="contactForm" class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Name</label>
+          <input type="text" name="name" required placeholder="Your name" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Email</label>
+          <input type="email" name="email" required placeholder="you@example.com" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Message</label>
+          <textarea name="message" rows="4" required placeholder="Tell me about your project..." class="w-full p-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition resize-none"></textarea>
+        </div>
+        <button type="submit" class="h-12 rounded-full bg-limebrand text-ink font-semibold text-base hover:brightness-95 transition mt-2">
+          Send Message
+        </button>
+        <p id="contactStatus" class="text-sm text-center hidden mt-1"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

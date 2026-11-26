@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Anish Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fustat: ['Fustat', 'sans-serif'],
+            figtree: ['Figtree', 'sans-serif'],
+          },
+          colors: {
+            limebrand: '#C5F028',
+            ink: '#0A0B0A',
+            darkbg: '#090B08',
+            muted: '#5A5555',
+            mutedlight: '#898483',
+            surface: '#F5F5F5',
+          },
+          borderRadius: {
+            '4xl': '36px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-ink antialiased selection:bg-limebrand selection:text-ink relative">
+
+  <!-- Soft Top-Right Lime Ambient Glow -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+    <div class="absolute right-[-140px] -top-32 w-[780px] lg:w-[1050px] h-[780px] lg:h-[950px] rounded-full bg-[#ECFAB7]/35 blur-3xl"></div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="w-full max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-24 flex items-center justify-between relative z-30">
+    <a href="index.html" class="flex items-center shrink-0" aria-label="Home">
+      <img src="assets/logo.svg" alt="Andro Logo" class="w-12 h-12" />
+    </a>
+
+    <nav class="hidden md:flex items-center">
+      <a href="index.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Home</a>
+      <a href="about.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">About</a>
+      <a href="portfolio.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Portfolio</a>
+      <a href="gallery.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Gallery</a>
+      <a href="blog.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Blog</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button onclick="openContactModal()" class="h-10 px-5 rounded-full border border-neutral-200 bg-white/70 backdrop-blur-sm text-ink text-sm font-medium flex items-center gap-2 transition hover:bg-surface">
+        <img src="assets/fc3bfa539ef218e6.svg" alt="Chat icon" class="w-4 h-4" />
+        <span>Let’s talk</span>
+      </button>
+      <button id="userAuthBtn" onclick="openUserAuthModal()" class="h-10 px-5 rounded-full bg-ink text-white text-sm font-medium flex items-center gap-2 transition hover:bg-neutral-800">
+        <span>Login</span>
+      </button>
+      <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full bg-surface flex items-center justify-center" aria-label="Toggle Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden absolute top-24 left-5 right-5 bg-white border border-neutral-200 rounded-3xl p-4 shadow-xl flex-col gap-2 z-50">
+      <a href="index.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Home</a>
+      <a href="about.html" class="px-4 py-2.5 rounded-full bg-limebrand text-ink text-sm font-medium">About</a>
+      <a href="index.html#portfolio" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Portfolio</a>
+      <a href="index.html#blog" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Blog</a>
+    </div>
+  </header>
+
+  <!-- ==================== ABOUT HERO SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pt-10 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+      <!-- Left Portrait -->
+      <div class="lg:col-span-5">
+        <img
+          src="assets/3468f14f5b14d883.jpg"
+          alt="Andro — Web Designer and Developer"
+          class="w-full h-[460px] sm:h-[580px] lg:h-[678px] object-cover rounded-4xl"
+        />
+      </div>
+
+      <!-- Right Bio & Stats -->
+      <div class="lg:col-span-7 flex flex-col justify-between py-1">
+        <div>
+          <h1 class="text-4xl sm:text-[48px] font-bold leading-[1.18] tracking-tight text-ink mb-5">
+            I’m a web designer and<br class="hidden sm:inline" /> developer in Manchester.
+          </h1>
+          <p class="text-xl sm:text-2xl text-[#726C6C] leading-snug max-w-2xl">
+            With over a decade of industry experience, I specialize in creating visually appealing and functional websites.
+          </p>
+
+          <!-- Stacked Stats -->
+          <div class="mt-14 flex flex-col gap-6">
+            <div class="pb-5 border-b border-neutral-200">
+              <div class="text-4xl sm:text-[40px] font-bold text-ink leading-tight">
+                <span class="counter" data-target="75">75</span>+
+              </div>
+              <div class="text-base font-medium text-muted mt-1">Projects done</div>
+            </div>
+            <div class="pb-5 border-b border-neutral-200">
+              <div class="text-4xl sm:text-[40px] font-bold text-ink leading-tight">
+                <span class="counter" data-target="100">100</span>%
+              </div>
+              <div class="text-base font-medium text-muted mt-1">Positive reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hire Me + Social Pills -->
+        <div class="flex flex-wrap items-center gap-2.5 mt-12">
+          <button onclick="openContactModal()" class="h-12 px-7 rounded-full bg-ink text-white text-base font-medium transition hover:bg-neutral-800">
+            Hire Me
+          </button>
+          <a href="#" aria-label="Dribbble" class="w-14 h-12 rounded-full border border-neutral-300/80 flex items-center justify-center transition hover:bg-white">
+            <img src="assets/28431c3f42ba2d6c.svg" alt="Icon 1" class="w-5 h-5" />
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-14 h-12 rounded-full border border-neutral-300/80 flex items-center justify-center transition hover:bg-white">
+            <img src="assets/2d11432df24cae9f.svg" alt="Icon 2" class="w-5 h-5" />
+          </a>
+          <a href="#" aria-label="X / Twitter" class="w-14 h-12 rounded-full border border-neutral-300/80 flex items-center justify-center transition hover:bg-white">
+            <img src="assets/2692c56e4a8146fd.svg" alt="Icon 3" class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BRAND LOGO MARQUEE ==================== -->
+  <section class="w-full overflow-hidden py-10 mb-14">
+    <div class="marquee-track items-center gap-24">
+      <div class="flex items-center gap-24 shrink-0">
+        <img src="assets/d9fcbaba024ad614.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/af2cbce8030754a4.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/5fdae1971a5bf1b2.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/59a557f0b680ed84.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f30997d2dfbdca61.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/69aa5ea4d650baac.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f7d160f1b828212f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/bca8fc3a4c418b6f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/2aecf89957a22c72.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/9b1362ac6738d2bf.svg" alt="Brand" class="h-[30px] w-auto" />
+      </div>
+      <div class="flex items-center gap-24 shrink-0 ml-24" aria-hidden="true">
+        <img src="assets/d9fcbaba024ad614.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/af2cbce8030754a4.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/5fdae1971a5bf1b2.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/59a557f0b680ed84.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f30997d2dfbdca61.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/69aa5ea4d650baac.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/f7d160f1b828212f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/bca8fc3a4c418b6f.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/2aecf89957a22c72.svg" alt="Brand" class="h-[30px] w-auto" />
+        <img src="assets/9b1362ac6738d2bf.svg" alt="Brand" class="h-[30px] w-auto" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 10 YEARS OF EXPERIENCE ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="bg-ink rounded-4xl px-6 sm:px-14 py-20 sm:py-24">
+      <h2 class="text-white text-4xl sm:text-[56px] font-bold text-center tracking-tight mb-20">
+        10 years of experience
+      </h2>
+
+      <div class="flex flex-col gap-4">
+        <!-- Row 1 -->
+        <div class="rounded-3xl sm:rounded-full border border-white/[0.08] bg-white/[0.02] px-6 sm:px-8 py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center transition hover:border-white/20">
+          <div class="md:col-span-6 flex items-center gap-4">
+            <img src="assets/9668b1058e4ebf4b.svg" alt="Company 1" class="w-12 h-12 shrink-0" />
+            <span class="text-white text-xl sm:text-2xl font-semibold">Product Designer</span>
+          </div>
+          <div class="md:col-span-4">
+            <a href="https://hyperfolio.framer.website" target="_blank" rel="noreferrer" class="text-limebrand text-base hover:underline">hyperfolio.framer.website</a>
+          </div>
+          <div class="md:col-span-2 md:text-right text-[#F2F2F2] text-base">
+            2023 - Present
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="rounded-3xl sm:rounded-full border border-white/[0.08] bg-white/[0.02] px-6 sm:px-8 py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center transition hover:border-white/20">
+          <div class="md:col-span-6 flex items-center gap-4">
+            <img src="assets/8d33d611edc8cab6.svg" alt="Company 2" class="w-12 h-12 shrink-0" />
+            <span class="text-white text-xl sm:text-2xl font-semibold">UX Designer</span>
+          </div>
+          <div class="md:col-span-4">
+            <a href="https://codot.framer.website" target="_blank" rel="noreferrer" class="text-limebrand text-base hover:underline">codot.framer.website</a>
+          </div>
+          <div class="md:col-span-2 md:text-right text-[#F2F2F2] text-base">
+            2019 - 2023
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="rounded-3xl sm:rounded-full border border-white/[0.08] bg-white/[0.02] px-6 sm:px-8 py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center transition hover:border-white/20">
+          <div class="md:col-span-6 flex items-center gap-4">
+            <img src="assets/33f77d161f81b1dd.svg" alt="Company 3" class="w-12 h-12 shrink-0" />
+            <span class="text-white text-xl sm:text-2xl font-semibold">Lead Product Designer</span>
+          </div>
+          <div class="md:col-span-4">
+            <a href="https://pentaclay.com" target="_blank" rel="noreferrer" class="text-limebrand text-base hover:underline">pentaclay.com</a>
+          </div>
+          <div class="md:col-span-2 md:text-right text-[#F2F2F2] text-base">
+            2016 - 2018
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="rounded-3xl sm:rounded-full border border-white/[0.08] bg-white/[0.02] px-6 sm:px-8 py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center transition hover:border-white/20">
+          <div class="md:col-span-6 flex items-center gap-4">
+            <img src="assets/57faeb49d8f865de.svg" alt="Company 4" class="w-12 h-12 shrink-0" />
+            <span class="text-white text-xl sm:text-2xl font-semibold">Senior Product Designer</span>
+          </div>
+          <div class="md:col-span-4">
+            <a href="https://greenspire.framer.website" target="_blank" rel="noreferrer" class="text-limebrand text-base hover:underline">greenspire.framer.website</a>
+          </div>
+          <div class="md:col-span-2 md:text-right text-[#F2F2F2] text-base">
+            2015 - 2016
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="rounded-3xl sm:rounded-full border border-white/[0.08] bg-white/[0.02] px-6 sm:px-8 py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center transition hover:border-white/20">
+          <div class="md:col-span-6 flex items-center gap-4">
+            <img src="assets/9582364f0800484e.svg" alt="Company 5" class="w-12 h-12 shrink-0" />
+            <span class="text-white text-xl sm:text-2xl font-semibold">UI/UX Designer</span>
+          </div>
+          <div class="md:col-span-4">
+            <a href="https://kairy.framer.website" target="_blank" rel="noreferrer" class="text-limebrand text-base hover:underline">kairy.framer.website</a>
+          </div>
+          <div class="md:col-span-2 md:text-right text-[#F2F2F2] text-base">
+            2014 - 2015
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== AWARDS SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <!-- Left Image -->
+      <div class="lg:col-span-5">
+        <img
+          src="assets/12ff8a4de25ad513.jpg"
+          alt="Awards"
+          class="w-full h-[440px] sm:h-[580px] lg:h-[672px] object-cover rounded-4xl"
+        />
+      </div>
+
+      <!-- Right Awards List -->
+      <div class="lg:col-span-7">
+        <h2 class="text-4xl sm:text-[56px] font-bold text-ink leading-tight mb-4">Awards</h2>
+        <p class="text-base text-muted leading-relaxed max-w-xl mb-14">
+          The if calculus is earnestly starting repeat by moving rethoric drunk or the caching lay if desk steps. A was him matters with of that breakfasts.
+        </p>
+
+        <div class="divide-y divide-neutral-200">
+          <!-- Award 1 -->
+          <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
+            <div class="sm:col-span-4 text-lg font-semibold text-ink">Dribbble</div>
+            <div class="sm:col-span-6 text-base text-muted">Elegant pixels for refined web artistry</div>
+            <div class="sm:col-span-2 sm:text-right text-base font-semibold text-[#2B2928]">2016</div>
+          </div>
+          <!-- Award 2 -->
+          <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
+            <div class="sm:col-span-4 text-lg font-semibold text-ink">Awwwards</div>
+            <div class="sm:col-span-6 text-base text-muted">Digital dreamscapes for immersive experiences</div>
+            <div class="sm:col-span-2 sm:text-right text-base font-semibold text-[#2B2928]">2019</div>
+          </div>
+          <!-- Award 3 -->
+          <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
+            <div class="sm:col-span-4 text-lg font-semibold text-ink">Behance</div>
+            <div class="sm:col-span-6 text-base text-muted">Innovative interfaces for modern applications</div>
+            <div class="sm:col-span-2 sm:text-right text-base font-semibold text-[#2B2928]">2022</div>
+          </div>
+          <!-- Award 4 -->
+          <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
+            <div class="sm:col-span-4 text-lg font-semibold text-ink">Awwwards</div>
+            <div class="sm:col-span-6 text-base text-muted">Creating web masterpieces for users</div>
+            <div class="sm:col-span-2 sm:text-right text-base font-semibold text-[#2B2928]">2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOG / INSIGHTS CARDS ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="blog-post.html?slug=find-all-everything-from-design-to-freelancing" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/16ddb3e6aa162d0e.png" alt="Design to freelancing" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Find all everything from design to freelancing
+          </h3>
+        </div>
+      </a>
+
+      <a href="blog-post.html?slug=webflow-freelancer-to-agency-owner-path" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/59f3ad7c7b9169b7.png" alt="Webflow freelancer to agency" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Webflow freelancer to agency owner path
+          </h3>
+        </div>
+      </a>
+
+      <a href="blog-post.html?slug=design-trends-you-should-follow-for-next-project" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/df019dac73248bee.jpg" alt="Design trends" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Design trends you should follow for next project
+          </h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <h2 class="text-3xl sm:text-5xl font-bold text-ink text-center mb-14">
+      Frequently asked questions
+    </h2>
+
+    <div class="max-w-[732px] mx-auto flex flex-col gap-6" id="faqAccordion">
+      <div class="accordion-item is-open rounded-3xl bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">What services do you provide?</h3>
+          <img src="assets/d8a51fc2e0d86163.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              There are many types of services we offer, ranging from design and development to marketing and consulting, but each project is tailored individually, ensuring a unique solution that fits your needs perfectly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">How long does a project take?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              Project durations vary depending on complexity and requirements, but we always aim to deliver on time while maintaining quality, and we keep clients updated throughout the process to avoid surprises.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">What is your pricing model?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              Pricing can differ based on the project scope, complexity, and specific requirements, but we provide transparent quotes upfront so there are no hidden costs or unexpected charges along the way.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">Do you offer post-project support?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              After a project is completed, we provide ongoing support and maintenance to ensure everything functions smoothly, address any issues quickly, and help clients get the most out of the final product.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER CTA & BOTTOM BAR ==================== -->
+  <footer class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-10">
+    <div class="bg-ink rounded-4xl px-6 py-20 sm:py-28 flex flex-col items-center text-center">
+      <p class="text-limebrand text-lg font-normal mb-4">
+        Let’s turn your ideas into a stunning reality.
+      </p>
+      <a href="mailto:mdanishur72@gmail.com" class="text-white text-2xl sm:text-5xl lg:text-[64px] font-bold tracking-tight hover:text-limebrand transition break-all">
+        mdanishur72@gmail.com
+      </a>
+
+      <nav class="flex flex-wrap items-center justify-center gap-1 mt-12">
+        <a href="index.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Home</a>
+        <a href="about.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">About</a>
+        <a href="index.html#portfolio" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Portfolio</a>
+        <a href="index.html#blog" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Blog</a>
+      </nav>
+    </div>
+
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="text-sm text-ink">Theme created by Pentaclay</p>
+
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-flex items-center gap-2 text-sm text-ink hover:opacity-70 transition">
+        <span>Back to Top</span>
+        <img src="assets/b90b6af0dc5f4d6b.svg" alt="Back to top" class="w-[18px] h-[18px]" />
+      </button>
+
+      <div class="flex items-center gap-2">
+        <a href="#" aria-label="Social 1" class="social-pill"><div class="social-pill-inner"><img src="assets/294c1b6b1e0949b1.svg" alt="Social 1" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 2" class="social-pill"><div class="social-pill-inner"><img src="assets/0dc8e818fc9cae7b.svg" alt="Social 2" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 3" class="social-pill"><div class="social-pill-inner"><img src="assets/4c52bc0207d54f90.svg" alt="Social 3" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 4" class="social-pill"><div class="social-pill-inner"><img src="assets/e4289dbe3099af5d.svg" alt="Social 4" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 5" class="social-pill"><div class="social-pill-inner"><img src="assets/e1ade63b745ea15f.svg" alt="Social 5" class="w-5 h-5" /></div></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CONTACT MODAL ==================== -->
+  <div id="contactModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-white rounded-4xl max-w-lg w-full p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink hover:bg-neutral-200 transition" aria-label="Close modal">
+        ✕
+      </button>
+      <p class="text-sm font-semibold text-muted mb-1">Let’s work together</p>
+      <h3 class="text-3xl font-bold text-ink mb-6">Send me a message</h3>
+      <form id="contactForm" class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Name</label>
+          <input type="text" name="name" required placeholder="Your name" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Email</label>
+          <input type="email" name="email" required placeholder="you@example.com" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Message</label>
+          <textarea name="message" rows="4" required placeholder="Tell me about your project..." class="w-full p-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition resize-none"></textarea>
+        </div>
+        <button type="submit" class="h-12 rounded-full bg-limebrand text-ink font-semibold text-base hover:brightness-95 transition mt-2">
+          Send Message
+        </button>
+        <p id="contactStatus" class="text-sm text-center hidden mt-1"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

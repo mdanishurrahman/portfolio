@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anish Personal Portfolio Web UI Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fustat: ['Fustat', 'sans-serif'],
+            figtree: ['Figtree', 'sans-serif'],
+          },
+          colors: {
+            limebrand: '#C5F028',
+            ink: '#0A0B0A',
+            darkbg: '#090B08',
+            muted: '#5A5555',
+            mutedlight: '#898483',
+            surface: '#F5F5F5',
+          },
+          borderRadius: {
+            '4xl': '36px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-ink antialiased selection:bg-limebrand selection:text-ink">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="w-full max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-24 flex items-center justify-between relative z-30">
+    <!-- Brand Logo -->
+    <a href="#" class="flex items-center shrink-0" aria-label="Home">
+      <img src="assets/logo.svg" alt="Andro Logo" class="w-12 h-12" />
+    </a>
+
+    <!-- Desktop Nav Pills -->
+    <nav class="hidden md:flex items-center">
+      <a href="#home" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Home</a>
+      <a href="about.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">About</a>
+      <a href="portfolio.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Portfolio</a>
+      <a href="gallery.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Gallery</a>
+      <a href="blog.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Blog</a>
+    </nav>
+
+    <!-- Right CTA + Mobile Toggle -->
+    <div class="flex items-center gap-3">
+      <button onclick="openContactModal()" class="h-10 px-5 rounded-full border border-neutral-200 bg-transparent text-ink text-sm font-medium flex items-center gap-2 transition hover:bg-surface">
+        <img src="assets/fc3bfa539ef218e6.svg" alt="Chat icon" class="w-4 h-4" />
+        <span>Let’s talk</span>
+      </button>
+      <button id="userAuthBtn" onclick="openUserAuthModal()" class="h-10 px-5 rounded-full bg-ink text-white text-sm font-medium flex items-center gap-2 transition hover:bg-neutral-800">
+        <span>Login</span>
+      </button>
+      <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full bg-surface flex items-center justify-center" aria-label="Toggle Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden absolute top-24 left-5 right-5 bg-white border border-neutral-200 rounded-3xl p-4 shadow-xl flex-col gap-2 z-50">
+      <a href="#home" class="px-4 py-2.5 rounded-full bg-limebrand text-ink text-sm font-medium">Home</a>
+      <a href="about.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">About</a>
+      <a href="#portfolio" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Portfolio</a>
+      <a href="#blog" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Blog</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="home" class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pt-1.5">
+    <div class="relative w-full min-h-[700px] lg:min-h-[791px] rounded-4xl bg-darkbg overflow-hidden flex flex-col justify-between p-8 sm:p-12 lg:p-[60px]">
+      <!-- Subtle dark radial vignette -->
+      <div class="pointer-events-none absolute -left-24 top-[310px] w-[1120px] h-[980px] rounded-full bg-[#080807] opacity-80 blur-2xl"></div>
+
+      <!-- Background Portrait -->
+      <img
+        src="assets/c91e5f2ba2736ce0.png"
+        alt="Andro Portrait"
+        class="pointer-events-none select-none absolute right-0 lg:right-[-20px] bottom-0 h-[540px] sm:h-[680px] lg:h-[795px] w-auto object-cover object-top opacity-90 lg:opacity-100"
+      />
+      <!-- Gradient overlay for mobile readability -->
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-darkbg/90 via-darkbg/30 to-transparent lg:bg-gradient-to-r lg:from-darkbg/85 lg:via-darkbg/25 lg:to-transparent"></div>
+
+      <!-- Top Row -->
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-start justify-between gap-10">
+        <!-- Left Headline -->
+        <div class="max-w-2xl">
+          <p class="text-limebrand text-xl sm:text-2xl font-semibold tracking-tight mb-2">Hey 👋 I’m Anish</p>
+          <h1 class="text-white text-5xl sm:text-7xl lg:text-[96px] font-extrabold leading-[1.0] tracking-tight mb-8">
+            Designer &amp;<br />Developer
+          </h1>
+          <button onclick="openContactModal()" class="inline-flex items-center justify-center h-12 px-7 rounded-full bg-limebrand text-ink text-base font-medium transition hover:brightness-95 hover:scale-[1.02]">
+            Hire Me
+          </button>
+        </div>
+
+        <!-- Right "Experienced in" Card -->
+        <div class="w-[226px] rounded-2xl p-6 shrink-0 border border-white/10" style="background: linear-gradient(120deg, rgb(21, 20, 19) 0%, rgb(14, 16, 11) 100%);">
+          <p class="text-white text-sm font-semibold mb-4">Experienced in</p>
+          <div class="flex flex-wrap gap-2">
+            <div class="exp-pill"><div class="exp-pill-inner"><img src="assets/3c4dd2d5443f923e.svg" alt="Tool 1" class="w-5 h-5" /></div></div>
+            <div class="exp-pill"><div class="exp-pill-inner"><img src="assets/21f7c39187b2cd07.svg" alt="Tool 2" class="w-5 h-5" /></div></div>
+            <div class="exp-pill"><div class="exp-pill-inner"><img src="assets/bb9efdb988bd14f0.svg" alt="Tool 3" class="w-5 h-5" /></div></div>
+            <div class="exp-pill"><div class="exp-pill-inner"><img src="assets/ce43d99dc38f04ee.svg" alt="Tool 4" class="w-5 h-5" /></div></div>
+            <div class="exp-pill"><div class="exp-pill-inner"><img src="assets/eea647d92a96e8ba.svg" alt="Tool 5" class="w-5 h-5" /></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-10 mt-16">
+        <p class="text-white text-lg leading-relaxed max-w-[310px]">
+          Lead product designer and developer based in manchester, with over 10 years of experience.
+        </p>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 sm:gap-12 w-full lg:w-auto">
+          <div class="pb-3 border-b border-white/30 min-w-[100px] sm:min-w-[166px]">
+            <div class="text-white text-3xl sm:text-[40px] font-bold leading-tight"><span class="counter" data-target="20">20</span>+</div>
+            <div class="text-[#CCCBCC] text-sm sm:text-base mt-1">Years of experience</div>
+          </div>
+          <div class="pb-3 border-b border-white/30 min-w-[100px] sm:min-w-[166px]">
+            <div class="text-white text-3xl sm:text-[40px] font-bold leading-tight"><span class="counter" data-target="2">2</span> k+</div>
+            <div class="text-[#CCCBCC] text-sm sm:text-base mt-1">Happy clients</div>
+          </div>
+          <div class="pb-3 border-b border-white/30 min-w-[100px] sm:min-w-[166px]">
+            <div class="text-white text-3xl sm:text-[40px] font-bold leading-tight"><span class="counter" data-target="160">160</span>+</div>
+            <div class="text-[#CCCBCC] text-sm sm:text-base mt-1">Country</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTRO / ABOUT STATEMENT ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 py-24 lg:py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-4">
+        <span class="text-base font-semibold text-ink">(Available for work)</span>
+      </div>
+      <div class="lg:col-span-8">
+        <h2 class="font-figtree text-2xl sm:text-[32px] font-bold leading-[1.25] tracking-tight text-[#88898B]">
+          <span class="text-[#111418]">Welcome to my portfolio! I’m Anish, a passionate and innovative web designer</span>
+          and developer based in Manchester. With over 10 years of professional experience, I specialize in creating visually stunning and highly functional websites that deliver exceptional user experiences.
+        </h2>
+        <a href="#portfolio" class="inline-flex items-center gap-2.5 mt-10 text-base font-medium text-ink group">
+          <span>See my latest work</span>
+          <img src="assets/4d25c2fcebc8a573.svg" alt="Arrow" class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES SECTION ==================== -->
+  <section id="services" class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+      <h2 class="text-4xl sm:text-[56px] font-bold leading-[1.15] tracking-tight text-ink">
+        The coolest<br />services I provide!
+      </h2>
+      <div class="max-w-xs">
+        <p class="text-base text-muted leading-relaxed mb-5">
+          With over 10 years in web design and development. I’m here to help bring your business to life with top-notch service.
+        </p>
+        <button onclick="openContactModal()" class="h-10 px-5 rounded-full border border-neutral-200 text-sm font-medium text-ink transition hover:bg-surface">
+          Hire Me
+        </button>
+      </div>
+    </div>
+
+    <!-- Services Accordion Cards -->
+    <div class="flex flex-col gap-5" id="servicesAccordion">
+      <!-- Service 1 (Open by default) -->
+      <div class="accordion-item is-open rounded-4xl bg-white border border-neutral-200/80 px-6 sm:px-10 py-8 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4 accordion-trigger">
+          <h3 class="text-2xl sm:text-[32px] font-bold text-ink">Creative Design</h3>
+          <img src="assets/644219db8b6673f2.svg" alt="Toggle" class="w-5 h-5 accordion-icon accordion-icon-rotate shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-end">
+              <div class="lg:col-span-6 flex flex-col justify-between h-full gap-12">
+                <p class="text-base text-muted leading-relaxed max-w-lg">
+                  My creative strategy and branding service focuses on developing distinctive brand identities that resonate with your audience and communicate your vision effectively. We combine research, storytelling, and design thinking.
+                </p>
+                <div class="grid grid-cols-3 gap-6">
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">100+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Work done</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">97+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Positive reviews</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">50+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Repeat clients</div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-6">
+                <img src="assets/17ae2ac91d8715a7.jpg" alt="Creative Design" class="w-full h-[260px] sm:h-[320px] object-cover rounded-3xl" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="accordion-item rounded-4xl bg-white border border-neutral-200/80 px-6 sm:px-10 py-8 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4 accordion-trigger">
+          <h3 class="text-2xl sm:text-[32px] font-bold text-ink">Web Development</h3>
+          <img src="assets/644219db8b6673f2.svg" alt="Toggle" class="w-5 h-5 accordion-icon accordion-icon-rotate shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-end">
+              <div class="lg:col-span-6 flex flex-col justify-between h-full gap-12">
+                <p class="text-base text-muted leading-relaxed max-w-lg">
+                  We prioritize clean layouts, intuitive navigation, and seamless interactions to ensure every design enhances usability and drives engagement. Whether it’s a responsive website, a mobile app, or a complex software interface.
+                </p>
+                <div class="grid grid-cols-3 gap-6">
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Work done</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Positive reviews</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Repeat clients</div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-6">
+                <img src="assets/da0a55a11cc80a9c.jpg" alt="Web Development" class="w-full h-[260px] sm:h-[320px] object-cover rounded-3xl" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="accordion-item rounded-4xl bg-white border border-neutral-200/80 px-6 sm:px-10 py-8 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4 accordion-trigger">
+          <h3 class="text-2xl sm:text-[32px] font-bold text-ink">Digital Marketing</h3>
+          <img src="assets/644219db8b6673f2.svg" alt="Toggle" class="w-5 h-5 accordion-icon accordion-icon-rotate shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-end">
+              <div class="lg:col-span-6 flex flex-col justify-between h-full gap-12">
+                <p class="text-base text-muted leading-relaxed max-w-lg">
+                  Data-driven campaigns that help brands reach and engage their target audiences effectively. We combine strategy, creativity, and analytics to optimize performance across social media and search engines.
+                </p>
+                <div class="grid grid-cols-3 gap-6">
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Work done</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Positive reviews</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Repeat clients</div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-6">
+                <img src="assets/aa30ca0e68df8f8e.jpg" alt="Digital Marketing" class="w-full h-[260px] sm:h-[320px] object-cover rounded-3xl" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="accordion-item rounded-4xl bg-white border border-neutral-200/80 px-6 sm:px-10 py-8 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4 accordion-trigger">
+          <h3 class="text-2xl sm:text-[32px] font-bold text-ink">Business Consulting</h3>
+          <img src="assets/644219db8b6673f2.svg" alt="Toggle" class="w-5 h-5 accordion-icon accordion-icon-rotate shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 items-end">
+              <div class="lg:col-span-6 flex flex-col justify-between h-full gap-12">
+                <p class="text-base text-muted leading-relaxed max-w-lg">
+                  Whether it’s for websites, mobile apps, or software platforms, I aim to deliver insights and strategies that enhance the user experience, streamline interactions, and align product design with your business goals.
+                </p>
+                <div class="grid grid-cols-3 gap-6">
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Work done</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Positive reviews</div>
+                  </div>
+                  <div>
+                    <div class="text-3xl sm:text-[40px] font-bold text-ink leading-tight">10+</div>
+                    <div class="text-sm sm:text-base font-medium text-muted mt-1">Repeat clients</div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-6">
+                <img src="assets/01415d8eb82b7823.jpg" alt="Business Consulting" class="w-full h-[260px] sm:h-[320px] object-cover rounded-3xl" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PORTFOLIO SHOWCASE ==================== -->
+  <section id="portfolio" class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <h2 class="text-4xl sm:text-[56px] font-bold leading-[1.15] tracking-tight text-ink">
+        Check out our<br />awesome showcase!
+      </h2>
+      <a href="#portfolio" class="inline-flex items-center justify-center h-12 px-6 rounded-full border border-neutral-200 text-base font-medium text-ink transition hover:bg-surface self-start sm:self-auto">
+        View all Cases
+      </a>
+    </div>
+
+    <div class="flex flex-col gap-8">
+      <!-- Case 1 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/81fdc9d3431a5af6.png" alt="Voltgear EV Tracking" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-12 sm:h-14 px-7 rounded-full bg-white/25 backdrop-blur-md text-white text-lg sm:text-xl font-semibold mb-4">UiUx</span>
+          <h3 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Voltgear EV Tracking</h3>
+        </div>
+      </article>
+
+      <!-- Case 2 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/72e46ce3be6c9579.png" alt="Camping Website Design" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-12 sm:h-14 px-7 rounded-full bg-white/25 backdrop-blur-md text-white text-lg sm:text-xl font-semibold mb-4">Website</span>
+          <h3 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Camping Website Design</h3>
+        </div>
+      </article>
+
+      <!-- Case 3 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/503c70a35aac3f59.png" alt="Minimal - Brand Animation" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-12 sm:h-14 px-7 rounded-full bg-white/25 backdrop-blur-md text-white text-lg sm:text-xl font-semibold mb-4">Branding</span>
+          <h3 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Minimal - Brand Animation</h3>
+        </div>
+      </article>
+
+      <!-- Case 4 -->
+      <article class="relative w-full h-[460px] sm:h-[580px] lg:h-[640px] rounded-4xl overflow-hidden group cursor-pointer">
+        <img src="assets/b92590d30d782cba.png" alt="Wood E-Commerce Mobile" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(200deg, rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.65) 100%);"></div>
+        <div class="absolute bottom-8 left-6 sm:bottom-12 sm:left-10 z-10">
+          <span class="inline-flex items-center justify-center h-12 sm:h-14 px-7 rounded-full bg-white/25 backdrop-blur-md text-white text-lg sm:text-xl font-semibold mb-4">UiUx</span>
+          <h3 class="text-white text-3xl sm:text-5xl font-bold tracking-tight">Wood E-Commerce Mobile</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE + TESTIMONIALS ==================== -->
+  <section class="w-full overflow-hidden pb-24 lg:pb-32">
+    <!-- Infinite Marquee -->
+    <div class="w-full overflow-hidden py-6 mb-14">
+      <div class="marquee-track items-center gap-14">
+        <div class="flex items-center gap-14 shrink-0">
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+        </div>
+        <div class="flex items-center gap-14 shrink-0 ml-14" aria-hidden="true">
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+          <img src="assets/fd54fbf997d2590b.png" alt="Marquee Banner" class="h-28 sm:h-[157px] w-auto object-contain" />
+          <span class="w-6 h-6 rounded-full bg-ink shrink-0"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <div class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20">
+      <div id="testimonialTrack" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
+        <!-- Card 1 -->
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/edab65b2419ba51d.jpg" alt="James Anderson" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              Thanks to the team’s creativity and precision, our project was truly smooth, seamless, efficient, and visually stunning.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">James Anderson</div>
+              <div class="text-sm text-ink/80">UX Designer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/fc11c8e093ffc5d3.jpg" alt="Michael Thompson" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              Working with them felt smooth and seamless, with every step being professional, insightful, and results-driven.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">Michael Thompson</div>
+              <div class="text-sm text-ink/80">Frontend Developer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/abb9d4a78a03de6a.jpg" alt="David Miller" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              Their innovative approach transformed our ideas into a cohesive, user-friendly solution that exceeded all our expectations.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">David Miller</div>
+              <div class="text-sm text-ink/80">Product Manager</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="snap-start shrink-0 w-[90vw] sm:w-[628px] bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-7 items-stretch">
+          <img src="assets/348c4103daa864dc.jpg" alt="Christopher Reed" class="w-full sm:w-[290px] h-[250px] sm:h-[292px] rounded-3xl object-cover shrink-0" />
+          <div class="flex flex-col justify-between py-2">
+            <p class="text-lg font-semibold leading-snug text-ink">
+              The process was efficient and inspiring, combining expertise, creativity, and dedication to produce outstanding work.
+            </p>
+            <div class="mt-6">
+              <div class="text-lg font-semibold text-ink">Christopher Reed</div>
+              <div class="text-sm text-ink/80">Creative Director</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prev / Next Buttons -->
+      <div class="flex items-center justify-center gap-4 mt-10">
+        <button id="prevTestimonial" class="w-14 h-14 rounded-full flex items-center justify-center transition hover:scale-105 active:scale-95" aria-label="Previous testimonial">
+          <img src="assets/32c7e0709fad5518.svg" alt="Previous" class="w-14 h-14" />
+        </button>
+        <button id="nextTestimonial" class="w-14 h-14 rounded-full flex items-center justify-center transition hover:scale-105 active:scale-95" aria-label="Next testimonial">
+          <img src="assets/130cfa3da11c615e.svg" alt="Next" class="w-14 h-14" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DESIGN PROCESS SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="bg-surface rounded-4xl p-6 sm:p-10 lg:p-6 lg:pt-24">
+      <h2 class="text-4xl sm:text-[56px] font-bold leading-[1.15] tracking-tight text-ink text-center mb-16">
+        My reliable and effective<br />design process
+      </h2>
+
+      <!-- Top Row: 3 Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <!-- Discovery -->
+        <div class="bg-white rounded-3xl p-10 flex flex-col justify-between min-h-[345px]">
+          <div class="w-14 h-14 flex items-center justify-start">
+            <img src="assets/434686d96e14701b.svg" alt="Discovery" class="w-9 h-9" />
+          </div>
+          <div class="mt-10">
+            <h3 class="text-[28px] font-semibold text-ink mb-3">Discovery</h3>
+            <p class="text-base text-muted leading-relaxed">
+              I’ll draft a few layouts to make sure we’re aligned on the structure, interactions, and overall direction.
+            </p>
+          </div>
+        </div>
+
+        <!-- Wireframe -->
+        <div class="bg-white rounded-3xl p-10 flex flex-col justify-between min-h-[345px]">
+          <div class="w-14 h-14 flex items-center justify-start">
+            <img src="assets/11ee50e30ba5ea9a.svg" alt="Wireframe" class="w-9 h-9" />
+          </div>
+          <div class="mt-10">
+            <h3 class="text-[28px] font-semibold text-ink mb-3">Wireframe</h3>
+            <p class="text-base text-muted leading-relaxed">
+              I'll whip up some wireframes to make sure we're all on the same page about where we're headed.
+            </p>
+          </div>
+        </div>
+
+        <!-- Design -->
+        <div class="bg-white rounded-3xl p-10 flex flex-col justify-between min-h-[345px]">
+          <div class="w-14 h-14 flex items-center justify-start">
+            <img src="assets/9d3d5ba14aa0e42e.svg" alt="Design" class="w-9 h-9" />
+          </div>
+          <div class="mt-10">
+            <h3 class="text-[28px] font-semibold text-ink mb-3">Design</h3>
+            <p class="text-base text-muted leading-relaxed">
+              I'll check out the art direction and animation for the experience, making sure it fits well with your target.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: 2 Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Build -->
+        <div class="relative bg-white rounded-3xl p-10 min-h-[281px] overflow-hidden flex flex-col justify-center">
+          <div class="relative z-10 max-w-[260px]">
+            <h3 class="text-[28px] font-semibold text-ink mb-3">Build</h3>
+            <p class="text-base text-[#726C6C] leading-relaxed">
+              Once the designs are all set, I'll team up with a creative developer to make the vision.
+            </p>
+          </div>
+          <!-- Decorative Circle + Floating Tool Icons -->
+          <div class="hidden sm:block pointer-events-none absolute -right-12 -bottom-10 w-[258px] h-[258px] rounded-full bg-[#ECFAB7]"></div>
+          <div class="hidden sm:flex absolute right-14 top-12 w-20 h-20 rounded-full bg-white shadow-md items-center justify-center">
+            <img src="assets/f123173cd7d4145a.svg" alt="Build Tool 1" class="w-7 h-7" />
+          </div>
+          <div class="hidden sm:flex absolute right-44 top-20 w-20 h-20 rounded-full bg-white shadow-md items-center justify-center">
+            <img src="assets/9128021e2d6d12a0.svg" alt="Build Tool 2" class="w-7 h-7" />
+          </div>
+          <div class="hidden sm:flex absolute right-24 bottom-4 w-20 h-20 rounded-full bg-white shadow-md items-center justify-center">
+            <img src="assets/3d64244e7ace90bd.svg" alt="Build Tool 3" class="w-7 h-7" />
+          </div>
+        </div>
+
+        <!-- Deliver -->
+        <div class="relative bg-white rounded-3xl p-10 min-h-[281px] overflow-hidden flex flex-col justify-center">
+          <div class="relative z-10 max-w-[260px]">
+            <h3 class="text-[28px] font-semibold text-ink mb-3">Deliver</h3>
+            <p class="text-base text-[#726C6C] leading-relaxed">
+              Finally, I'll put together and send you the project assets and guidelines right on schedule.
+            </p>
+          </div>
+          <!-- Decorative Circle + Floating Tool Icons -->
+          <div class="hidden sm:block pointer-events-none absolute -right-12 -top-16 w-[236px] h-[236px] rounded-full bg-[#B8BFFD]"></div>
+          <div class="hidden sm:flex absolute right-44 top-1/2 -translate-y-1/2 w-[85px] h-[85px] rounded-full bg-white shadow-md items-center justify-center">
+            <img src="assets/2ada61ce2c266597.svg" alt="Deliver Tool 1" class="w-8 h-8" />
+          </div>
+          <div class="hidden sm:flex absolute right-32 top-1/2 -translate-y-1/2 w-6 h-6 items-center justify-center z-10">
+            <img src="assets/30468cd979a49eb1.svg" alt="Sync" class="w-6 h-6" />
+          </div>
+          <div class="hidden sm:flex absolute right-8 top-1/2 -translate-y-1/2 w-[85px] h-[85px] rounded-full bg-white shadow-md items-center justify-center">
+            <img src="assets/bb06f25216da51cb.svg" alt="Deliver Tool 2" class="w-8 h-8" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PREVIOUS CLIENTS SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="bg-ink rounded-4xl px-6 py-16 sm:px-12 lg:px-6 lg:py-28">
+      <!-- Top Header Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 px-0 lg:px-4">
+        <div class="lg:col-span-3">
+          <span class="text-limebrand text-base font-semibold">My previous clients</span>
+        </div>
+        <div class="lg:col-span-5">
+          <h2 class="text-white text-3xl sm:text-[40px] font-bold leading-tight">
+            Work I have<br />done for them
+          </h2>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-surface text-base leading-relaxed mb-6">
+            I’m always open to new opportunities and conversations. Drop me a message, and let’s connect about your ideas or projects!
+          </p>
+          <a href="#portfolio" class="inline-flex items-center gap-2.5 text-limebrand text-base font-medium group">
+            <span>See my latest work</span>
+            <img src="assets/f4f68500005fcedf.svg" alt="Arrow" class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Bento Client Logo Grid -->
+      <div class="lg:pl-[25%] lg:pr-4">
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-6">
+          <!-- Row 1 -->
+          <div class="col-span-2 bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-8 transition hover:bg-[#252525]">
+            <img src="assets/a3478247dbf394ca.svg" alt="Client 1" class="w-[88px] h-[88px] object-contain" />
+          </div>
+          <div class="bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-6 transition hover:bg-[#252525]">
+            <img src="assets/b5985820a44b375b.svg" alt="Client 2" class="w-[67px] h-[70px] object-contain" />
+          </div>
+          <div class="bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-6 transition hover:bg-[#252525]">
+            <img src="assets/c66dd2b1c755291a.svg" alt="Client 3" class="w-[67px] h-[70px] object-contain" />
+          </div>
+          <div class="bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-6 transition hover:bg-[#252525]">
+            <img src="assets/d70683f7d1a59461.svg" alt="Client 4" class="w-[67px] h-[70px] object-contain" />
+          </div>
+
+          <!-- Row 2 -->
+          <div class="bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-6 transition hover:bg-[#252525]">
+            <img src="assets/29e688624ad99849.svg" alt="Client 5" class="w-[67px] h-[70px] object-contain" />
+          </div>
+          <div class="bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-6 transition hover:bg-[#252525]">
+            <img src="assets/7729a359af3606f2.svg" alt="Client 6" class="w-[67px] h-[70px] object-contain" />
+          </div>
+          <div class="bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-6 transition hover:bg-[#252525]">
+            <img src="assets/cb1ad2941f174922.svg" alt="Client 7" class="w-[67px] h-[70px] object-contain" />
+          </div>
+          <div class="col-span-2 bg-[#1C1C1C] rounded-2xl h-[200px] sm:h-[262px] flex items-center justify-center p-8 transition hover:bg-[#252525]">
+            <img src="assets/9bef068a351c787e.svg" alt="Client 8" class="w-[88px] h-[88px] object-contain" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWS AND INSIGHT (BLOG) ==================== -->
+  <section id="blog" class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
+      <h2 class="text-4xl sm:text-[56px] font-bold leading-[1.15] tracking-tight text-ink">
+        News and Insight
+      </h2>
+      <a href="#blog" class="inline-flex items-center justify-center h-12 px-6 rounded-full border border-neutral-200 text-base font-medium text-ink transition hover:bg-surface self-start sm:self-auto">
+        View all post
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Post 1 -->
+      <a href="blog-post.html?slug=find-all-everything-from-design-to-freelancing" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/16ddb3e6aa162d0e.png" alt="Design to freelancing" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Find all everything from design to freelancing
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="blog-post.html?slug=webflow-freelancer-to-agency-owner-path" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/59f3ad7c7b9169b7.png" alt="Webflow freelancer to agency" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Webflow freelancer to agency owner path
+          </h3>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="blog-post.html?slug=design-trends-you-should-follow-for-next-project" class="relative h-[440px] rounded-3xl overflow-hidden group cursor-pointer block">
+        <img src="assets/df019dac73248bee.jpg" alt="Design trends" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(10, 11, 10, 0) 0%, rgba(10, 11, 10, 0.72) 100%);"></div>
+        <div class="absolute bottom-7 left-7 right-7">
+          <h3 class="text-surface text-2xl font-semibold leading-snug">
+            Design trends you should follow for next project
+          </h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <h2 class="text-3xl sm:text-5xl font-bold text-ink text-center mb-14">
+      Frequently asked Questions
+    </h2>
+
+    <div class="max-w-[732px] mx-auto flex flex-col gap-6" id="faqAccordion">
+      <!-- FAQ 1 (Open by default) -->
+      <div class="accordion-item is-open rounded-3xl bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">What services do you offer?</h3>
+          <img src="assets/d8a51fc2e0d86163.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              There are many types of services we offer, ranging from design and development to marketing and consulting, but each project is tailored individually, ensuring a unique solution that fits your needs perfectly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">How long does a project take?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              Project durations vary depending on complexity and requirements, but we always aim to deliver on time while maintaining quality, and we keep clients updated throughout the process to avoid surprises.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">What is your pricing model?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              Pricing can differ based on the project scope, complexity, and specific requirements, but we provide transparent quotes upfront so there are no hidden costs or unexpected charges along the way.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item rounded-full bg-white border border-neutral-200/80 px-7 sm:px-10 py-6 cursor-pointer transition hover:border-neutral-300">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">Do you offer post-project support?</h3>
+          <img src="assets/f260b86a448d4dad.svg" alt="Toggle" class="w-[30px] h-[30px] faq-icon shrink-0" />
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <p class="text-base text-muted leading-relaxed pt-4">
+              After a project is completed, we provide ongoing support and maintenance to ensure everything functions smoothly, address any issues quickly, and help clients get the most out of the final product.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISITOR COMMENTS SECTION ==================== -->
+  <section id="comments" class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <div>
+        <span class="text-base font-semibold text-ink block mb-3">(Visitor Feedback)</span>
+        <h2 class="text-4xl sm:text-[56px] font-bold leading-[1.15] tracking-tight text-ink">
+          Leave a comment
+        </h2>
+      </div>
+      <div class="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-surface text-sm font-semibold text-ink self-start sm:self-auto">
+        <span class="w-2.5 h-2.5 rounded-full bg-limebrand"></span>
+        <span id="commentCount">0 Comments</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left: Comment Form Card -->
+      <div class="lg:col-span-5 bg-ink rounded-4xl p-8 sm:p-10 text-white">
+        <h3 class="text-2xl font-bold mb-2">Share your thoughts</h3>
+        <p class="text-sm text-[#CCCBCC] mb-7">
+          Have feedback on my work or just want to say hi? Drop a comment below.
+        </p>
+
+        <form id="commentForm" class="flex flex-col gap-4">
+          <div>
+            <label class="block text-sm font-medium text-white/90 mb-1.5">Your Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="e.g. Sarah Jenkins"
+              class="w-full h-12 px-4 rounded-2xl bg-[#1C1C1C] border border-white/10 text-white placeholder-white/40 focus:border-limebrand outline-none transition"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-white/90 mb-1.5">Role / Company <span class="text-white/40">(optional)</span></label>
+            <input
+              type="text"
+              name="role"
+              placeholder="e.g. Product Designer"
+              class="w-full h-12 px-4 rounded-2xl bg-[#1C1C1C] border border-white/10 text-white placeholder-white/40 focus:border-limebrand outline-none transition"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-white/90 mb-1.5">Comment</label>
+            <textarea
+              name="comment"
+              rows="4"
+              required
+              placeholder="Write your comment here..."
+              class="w-full p-4 rounded-2xl bg-[#1C1C1C] border border-white/10 text-white placeholder-white/40 focus:border-limebrand outline-none transition resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="h-12 rounded-full bg-limebrand text-ink font-semibold text-base hover:brightness-95 transition mt-2"
+          >
+            Post Comment
+          </button>
+          <p id="commentStatus" class="text-xs text-center hidden mt-1"></p>
+        </form>
+      </div>
+
+      <!-- Right: Comments Feed -->
+      <div class="lg:col-span-7 flex flex-col gap-4" id="commentsList">
+        <!-- Populated dynamically by js/main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER CTA & BOTTOM BAR ==================== -->
+  <footer class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-10">
+    <!-- Dark CTA Card -->
+    <div class="bg-ink rounded-4xl px-6 py-20 sm:py-28 flex flex-col items-center text-center">
+      <p class="text-limebrand text-lg font-normal mb-4">
+        Let’s turn your ideas into a stunning reality.
+      </p>
+      <a href="mailto:mdanishur72@gmail.com" class="text-white text-2xl sm:text-5xl lg:text-[64px] font-bold tracking-tight hover:text-limebrand transition break-all">
+        mdanishur72@gmail.com
+      </a>
+
+      <!-- Footer Nav Pills -->
+      <nav class="flex flex-wrap items-center justify-center gap-1 mt-12">
+        <a href="#home" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Home</a>
+        <a href="about.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">About</a>
+        <a href="#portfolio" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Portfolio</a>
+        <a href="#blog" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Blog</a>
+      </nav>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="text-sm text-ink">Theme created by Pentaclay</p>
+
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-flex items-center gap-2 text-sm text-ink hover:opacity-70 transition">
+        <span>Back to Top</span>
+        <img src="assets/b90b6af0dc5f4d6b.svg" alt="Back to top" class="w-[18px] h-[18px]" />
+      </button>
+
+      <div class="flex items-center gap-2">
+        <a href="#" aria-label="Social 1" class="social-pill"><div class="social-pill-inner"><img src="assets/294c1b6b1e0949b1.svg" alt="Social 1" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 2" class="social-pill"><div class="social-pill-inner"><img src="assets/0dc8e818fc9cae7b.svg" alt="Social 2" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 3" class="social-pill"><div class="social-pill-inner"><img src="assets/4c52bc0207d54f90.svg" alt="Social 3" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 4" class="social-pill"><div class="social-pill-inner"><img src="assets/e4289dbe3099af5d.svg" alt="Social 4" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 5" class="social-pill"><div class="social-pill-inner"><img src="assets/e1ade63b745ea15f.svg" alt="Social 5" class="w-5 h-5" /></div></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CONTACT MODAL (Ready for Express + MongoDB Backend) ==================== -->
+  <div id="contactModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-white rounded-4xl max-w-lg w-full p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink hover:bg-neutral-200 transition" aria-label="Close modal">
+        ✕
+      </button>
+      <p class="text-sm font-semibold text-muted mb-1">Let’s work together</p>
+      <h3 class="text-3xl font-bold text-ink mb-6">Send me a message</h3>
+      <form id="contactForm" class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Name</label>
+          <input type="text" name="name" required placeholder="Your name" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Email</label>
+          <input type="email" name="email" required placeholder="you@example.com" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Message</label>
+          <textarea name="message" rows="4" required placeholder="Tell me about your project..." class="w-full p-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition resize-none"></textarea>
+        </div>
+        <button type="submit" class="h-12 rounded-full bg-limebrand text-ink font-semibold text-base hover:brightness-95 transition mt-2">
+          Send Message
+        </button>
+        <p id="contactStatus" class="text-sm text-center hidden mt-1"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

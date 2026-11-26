@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery &amp; Profile — Anish Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fustat: ['Fustat', 'sans-serif'],
+            figtree: ['Figtree', 'sans-serif'],
+          },
+          colors: {
+            limebrand: '#C5F028',
+            ink: '#0A0B0A',
+            darkbg: '#090B08',
+            muted: '#5A5555',
+            mutedlight: '#898483',
+            surface: '#F5F5F5',
+          },
+          borderRadius: {
+            '4xl': '36px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-ink antialiased selection:bg-limebrand selection:text-ink relative">
+
+  <!-- Soft Top-Right Lime Ambient Glow -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+    <div class="absolute right-[-140px] -top-32 w-[780px] lg:w-[1050px] h-[780px] lg:h-[950px] rounded-full bg-[#ECFAB7]/35 blur-3xl"></div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="w-full max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-24 flex items-center justify-between relative z-30">
+    <a href="index.html" class="flex items-center shrink-0" aria-label="Home">
+      <img src="assets/logo.svg" alt="Andro Logo" class="w-12 h-12" />
+    </a>
+
+    <nav class="hidden md:flex items-center">
+      <a href="index.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Home</a>
+      <a href="about.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">About</a>
+      <a href="portfolio.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Portfolio</a>
+      <a href="gallery.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Gallery</a>
+      <a href="blog.html" class="h-10 px-5 rounded-full bg-surface text-ink text-sm font-medium flex items-center justify-center transition hover:bg-neutral-200">Blog</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button onclick="openContactModal()" class="h-10 px-5 rounded-full border border-neutral-200 bg-white/70 backdrop-blur-sm text-ink text-sm font-medium flex items-center gap-2 transition hover:bg-surface">
+        <img src="assets/fc3bfa539ef218e6.svg" alt="Chat icon" class="w-4 h-4" />
+        <span>Let’s talk</span>
+      </button>
+      <button id="userAuthBtn" onclick="openUserAuthModal()" class="h-10 px-5 rounded-full bg-ink text-white text-sm font-medium flex items-center gap-2 transition hover:bg-neutral-800">
+        <span>Login</span>
+      </button>
+      <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full bg-surface flex items-center justify-center" aria-label="Toggle Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden absolute top-24 left-5 right-5 bg-white border border-neutral-200 rounded-3xl p-4 shadow-xl flex-col gap-2 z-50">
+      <a href="index.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Home</a>
+      <a href="about.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">About</a>
+      <a href="portfolio.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Portfolio</a>
+      <a href="gallery.html" class="px-4 py-2.5 rounded-full bg-limebrand text-ink text-sm font-medium">Gallery</a>
+      <a href="blog.html" class="px-4 py-2.5 rounded-full bg-surface text-ink text-sm font-medium">Blog</a>
+    </div>
+  </header>
+
+  <!-- ==================== USER PROFILE CARD ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pt-8 pb-16">
+    <div class="bg-ink text-white rounded-4xl p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <img id="profileAvatar" src="assets/3468f14f5b14d883.jpg" alt="Profile Avatar" class="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl object-cover border-2 border-limebrand/60 shrink-0" />
+        <div>
+          <div class="flex flex-wrap items-center gap-3 mb-2">
+            <h1 id="profileFullName" class="text-3xl sm:text-4xl font-bold tracking-tight">Anish Rahman</h1>
+            <span id="profileHandle" class="text-sm text-white/50 font-medium">@andro</span>
+            <span id="profileAvailability" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-limebrand/15 text-limebrand text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-limebrand"></span>
+              Available for work
+            </span>
+          </div>
+          <p id="profileRole" class="text-lg text-white/90 font-medium mb-1">Lead Product Designer &amp; Developer</p>
+          <p id="profileLocation" class="text-sm text-white/60 mb-3">Manchester, UK</p>
+          <p id="profileBio" class="text-sm sm:text-base text-[#CCCBCC] max-w-2xl leading-relaxed">
+            Passionate and innovative web designer and developer with over 10 years of experience crafting visually stunning, high-performing digital products.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+        <a id="socialDribbble" href="#" class="h-11 px-5 rounded-full bg-[#1C1C1C] border border-white/10 text-sm font-medium flex items-center hover:border-limebrand transition">Dribbble</a>
+        <a id="socialLinkedIn" href="#" class="h-11 px-5 rounded-full bg-[#1C1C1C] border border-white/10 text-sm font-medium flex items-center hover:border-limebrand transition">LinkedIn</a>
+        <a id="socialGithub" href="#" class="h-11 px-5 rounded-full bg-[#1C1C1C] border border-white/10 text-sm font-medium flex items-center hover:border-limebrand transition">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ALBUMS SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-14">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <span class="text-base font-semibold text-ink block mb-2">(Curated Collections)</span>
+        <h2 class="text-4xl sm:text-[48px] font-bold tracking-tight text-ink">Albums</h2>
+      </div>
+      <button id="showAllPhotosBtn" class="h-10 px-6 rounded-full bg-limebrand text-ink text-sm font-semibold transition hover:brightness-95 self-start sm:self-auto">
+        All Photos
+      </button>
+    </div>
+
+    <div id="albumsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Populated dynamically by js/gallery.js -->
+    </div>
+  </section>
+
+  <!-- ==================== PHOTO GALLERY SECTION ==================== -->
+  <section class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-24 lg:pb-32">
+    <div class="flex items-center justify-between gap-4 mb-8">
+      <h2 id="galleryHeading" class="text-3xl sm:text-[40px] font-bold tracking-tight text-ink">Photo Gallery</h2>
+      <span id="photoCountBadge" class="h-9 px-4 rounded-full bg-surface text-sm font-semibold text-ink flex items-center">0 Photos</span>
+    </div>
+
+    <div id="photosGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Populated dynamically by js/gallery.js -->
+    </div>
+  </section>
+
+  <!-- ==================== LIGHTBOX MODAL ==================== -->
+  <div id="lightboxModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4">
+    <button id="closeLightbox" class="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25 transition" aria-label="Close">✕</button>
+    <button id="prevLightbox" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25 transition" aria-label="Previous">‹</button>
+    <button id="nextLightbox" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25 transition" aria-label="Next">›</button>
+
+    <div class="max-w-4xl w-full flex flex-col items-center">
+      <img id="lightboxImg" src="" alt="" class="max-h-[75vh] w-auto rounded-3xl object-contain shadow-2xl" />
+      <div class="mt-5 text-center text-white">
+        <h3 id="lightboxTitle" class="text-xl font-bold"></h3>
+        <p id="lightboxCaption" class="text-sm text-white/70 mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 pb-10">
+    <div class="bg-ink rounded-4xl px-6 py-20 sm:py-28 flex flex-col items-center text-center">
+      <p class="text-limebrand text-lg font-normal mb-4">Let’s turn your ideas into a stunning reality.</p>
+      <a href="mailto:mdanishur72@gmail.com" class="text-white text-2xl sm:text-5xl lg:text-[64px] font-bold tracking-tight hover:text-limebrand transition break-all">
+        mdanishur72@gmail.com
+      </a>
+      <nav class="flex flex-wrap items-center justify-center gap-1 mt-12">
+        <a href="index.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Home</a>
+        <a href="about.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">About</a>
+        <a href="portfolio.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Portfolio</a>
+        <a href="gallery.html" class="h-10 px-5 rounded-full bg-limebrand text-ink text-sm font-medium flex items-center justify-center transition hover:brightness-95">Gallery</a>
+        <a href="blog.html" class="h-10 px-5 rounded-full bg-[#2B2928] text-[#F2F2F2] text-sm font-medium flex items-center justify-center transition hover:bg-neutral-700">Blog</a>
+      </nav>
+    </div>
+
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="text-sm text-ink">Theme created by Pentaclay</p>
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-flex items-center gap-2 text-sm text-ink hover:opacity-70 transition">
+        <span>Back to Top</span>
+        <img src="assets/b90b6af0dc5f4d6b.svg" alt="Back to top" class="w-[18px] h-[18px]" />
+      </button>
+      <div class="flex items-center gap-2">
+        <a href="#" aria-label="Social 1" class="social-pill"><div class="social-pill-inner"><img src="assets/294c1b6b1e0949b1.svg" alt="Social 1" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 2" class="social-pill"><div class="social-pill-inner"><img src="assets/0dc8e818fc9cae7b.svg" alt="Social 2" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 3" class="social-pill"><div class="social-pill-inner"><img src="assets/4c52bc0207d54f90.svg" alt="Social 3" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 4" class="social-pill"><div class="social-pill-inner"><img src="assets/e4289dbe3099af5d.svg" alt="Social 4" class="w-5 h-5" /></div></a>
+        <a href="#" aria-label="Social 5" class="social-pill"><div class="social-pill-inner"><img src="assets/e1ade63b745ea15f.svg" alt="Social 5" class="w-5 h-5" /></div></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact Modal -->
+  <div id="contactModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-white rounded-4xl max-w-lg w-full p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink hover:bg-neutral-200 transition" aria-label="Close modal">✕</button>
+      <p class="text-sm font-semibold text-muted mb-1">Let’s work together</p>
+      <h3 class="text-3xl font-bold text-ink mb-6">Send me a message</h3>
+      <form id="contactForm" class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Name</label>
+          <input type="text" name="name" required placeholder="Your name" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Email</label>
+          <input type="email" name="email" required placeholder="you@example.com" class="w-full h-12 px-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink mb-1">Message</label>
+          <textarea name="message" rows="4" required placeholder="Tell me about your project..." class="w-full p-4 rounded-2xl bg-surface border border-transparent focus:border-ink focus:bg-white outline-none transition resize-none"></textarea>
+        </div>
+        <button type="submit" class="h-12 rounded-full bg-limebrand text-ink font-semibold text-base hover:brightness-95 transition mt-2">Send Message</button>
+        <p id="contactStatus" class="text-sm text-center hidden mt-1"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
